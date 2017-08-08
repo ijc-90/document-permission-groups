@@ -1,0 +1,22 @@
+[
+    {
+        "name" : "SAC - Gerente",
+    
+        "permissions" : 
+            [
+                "backoffice.brands.list",
+                "backoffice.brands.show"
+            ]
+    },
+    {
+        "name" : "bla",
+    
+        "permissions" : 
+            [
+                "backoffice.brands.review",
+                "backoffice.brands.show"
+            ]
+    }
+
+]
+
