@@ -1,7 +1,7 @@
 var fs = require('fs');
 var groups = require('./groups');
-var highlighterBeginning = '<p style="background-color:red">';
-var highlighterEnd = '</p>';
+var highlighterBeginning = '<mark>';
+var highlighterEnd = '</mark>';
 var fileToHighlight = './functionalities.html';
 var fileExtension = '.html';
 
