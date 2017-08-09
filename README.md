@@ -7,9 +7,14 @@ select array_to_json(array_agg(row_to_json(t)))
 
 Cambiale el nombre al grupo "Laboratório - Revisão/Foto" para que no contenga una barra
 
+Convertir el MD de permisos en html en la siguiente pagina:
+http://dillinger.io/
+(export as => styled html)
+guardar el resultado en functionalities.html
+
 
 corre el script:
 node make-groups-documentation.js
 
 
-se generan archivos resaltados en la carpeta groupsDocumentation para cada grupo de permisos
+se generan un archivo resaltados en la carpeta groupsDocumentation para cada grupo de permisos, con el nombre del grupo.
