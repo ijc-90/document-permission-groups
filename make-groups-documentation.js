@@ -1,10 +1,12 @@
 var fs = require('fs');
 var groups = require('./groups');
-var resaltadorInicio = "[ACÁ EMPIEZA]";
-var resaltadorFin = "[ACÁ TERMINA]";
+var highlighterBeginning = '<p style="background-color:red">';
+var highlighterEnd = '</p>';
+var fileToHighlight = './functionalities.html';
+var fileExtension = '.html';
 
 
-fs.readFile('./functionalities.md', 'utf8', function (err,data) {
+fs.readFile(fileToHighlight, 'utf8', function (err,data) {
   if (err) {
     console.log("error reading functionalities file");
     return console.log(err);
@@ -20,7 +22,7 @@ fs.readFile('./functionalities.md', 'utf8', function (err,data) {
     for( var permission in group.permissions){
         // console.log(permission);
         var regexp = new RegExp(permission, "ig");
-        var newValue = resaltadorInicio + permission + resaltadorFin;
+        var newValue = highlighterBeginning + permission + highlighterEnd;
 
         functionalities = functionalities.replace(regexp, newValue);
 
@@ -28,13 +30,13 @@ fs.readFile('./functionalities.md', 'utf8', function (err,data) {
     // group.permissions.forEach(function (permission){
     //     console.log(permission);
     //     var regexp = new RegExp(permission, "ig");
-    //     var newValue = resaltadorInicio + permission + resaltadorFin;
+    //     var newValue = highlighterBeginning + permission + highlighterEnd;
 
     //     functionalities = functionalities.replace(regexp, newValue);
     // });
     
     
-    fs.writeFile("./groupsDocumentation/"+group.name, functionalities, function(err) {
+    fs.writeFile("./groupsDocumentation/"+group.name+fileExtension, functionalities, function(err) {
         if(err) {
             return console.log(err);
         }
