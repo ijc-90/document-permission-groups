@@ -17,23 +17,17 @@ fs.readFile(fileToHighlight, 'utf8', function (err,data) {
   groups.forEach(function (group) {
 
     functionalities = data;
-    // console.log(group);
     
     for( var permission in group.permissions){
-        // console.log(permission);
-        var regexp = new RegExp(permission, "ig");
-        var newValue = highlighterBeginning + permission + highlighterEnd;
+        // Some permission from the database come in "-1". We would like to ignore them
+        if (group.permissions[permission] > 0){
+            var regexp = new RegExp(permission, "ig");
+            var newValue = highlighterBeginning + permission + highlighterEnd;
 
-        functionalities = functionalities.replace(regexp, newValue);
+            functionalities = functionalities.replace(regexp, newValue);
+        }
 
     }
-    // group.permissions.forEach(function (permission){
-    //     console.log(permission);
-    //     var regexp = new RegExp(permission, "ig");
-    //     var newValue = highlighterBeginning + permission + highlighterEnd;
-
-    //     functionalities = functionalities.replace(regexp, newValue);
-    // });
     
     
     fs.writeFile("./groupsDocumentation/"+group.name+fileExtension, functionalities, function(err) {
