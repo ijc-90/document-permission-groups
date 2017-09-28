@@ -35,12 +35,16 @@ function processFile(err,data){
     }
     
     
-    fs.writeFile("./groupsDocumentation/"+group.name+fileExtension, functionalities, function(err) {
+    writeGroupToFile(group.name, fileExtension, functionalities);
+});
+}
+
+function writeGroupToFile(fileName, fileExtension, functionalities){
+    fs.writeFile("./groupsDocumentation/"+fileName+fileExtension, functionalities, function(err) {
         if(err) {
             return console.log(err);
         }
     }); 
-});
 }
 
 openAndProcessFile(fileToHighlight, processFile);
