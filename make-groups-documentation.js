@@ -23,7 +23,7 @@ function processFile(err,data){
 
     functionalities = data;
 
-    highlightLinesWithGroupPermission(group, highlighterBeginning, highlighterEnd);
+    functionalities = highlightFunctionalitiesWithGroupPermission(functionalities, group, highlighterBeginning, highlighterEnd);
     
     for( var permission in group.permissions){
         // Some permission from the database come in "-1". We would like to ignore them
@@ -41,7 +41,7 @@ function processFile(err,data){
 });
 }
 
-function highlightLinesWithGroupPermission(group,highlighterBeginning, highlighterEnd){
+function highlightFunctionalitiesWithGroupPermission(functionalities, group,highlighterBeginning, highlighterEnd){
     for( var permission in group.permissions){
         // Some permission from the database come in "-1". We would like to ignore them
         if (group.permissions[permission] > 0){
@@ -50,8 +50,8 @@ function highlightLinesWithGroupPermission(group,highlighterBeginning, highlight
 
             functionalities = functionalities.replace(regexp, newValue);
         }
-
     }
+    return functionalities;
 }
 
 function writeGroupToFile(fileName, fileExtension, functionalities){
