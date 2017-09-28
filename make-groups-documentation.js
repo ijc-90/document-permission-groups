@@ -5,8 +5,12 @@ var highlighterEnd = '</mark>';
 var fileToHighlight = './functionalities.html';
 var fileExtension = '.html';
 
+function openAndProcessFile(fileName, callback, encoding = 'utf8'){
+    return fs.readFile(fileName, encoding, callback);
+}
 
-fs.readFile(fileToHighlight, 'utf8', function (err,data) {
+
+function processFile(err,data){
   if (err) {
     console.log("error reading functionalities file");
     return console.log(err);
@@ -36,8 +40,9 @@ fs.readFile(fileToHighlight, 'utf8', function (err,data) {
         }
     }); 
 });
+}
 
-});
+openAndProcessFile(fileToHighlight, callback);
 
 
 
