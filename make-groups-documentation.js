@@ -5,7 +5,8 @@ var highlighterEnd = '</mark>';
 var fileToHighlight = './functionalities.html';
 var fileExtension = '.html';
 
-function openAndProcessFile(fileName, callback, encoding = 'utf8'){
+function openAndProcessFile(fileName, callback, encoding){
+     encoding = encoding || 'utf8';
     return fs.readFile(fileName, encoding, callback);
 }
 
@@ -42,7 +43,7 @@ function processFile(err,data){
 });
 }
 
-openAndProcessFile(fileToHighlight, callback);
+openAndProcessFile(fileToHighlight, processFile);
 
 
 
