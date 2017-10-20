@@ -6,7 +6,7 @@
     from (
       select name, permissions::JSONB from groups
     ) t;
-    ```
+```
 
 2. Cambiale el nombre al grupo "Laboratório - Revisão/Foto" para que no contenga una barra
 
