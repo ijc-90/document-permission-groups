@@ -2,7 +2,8 @@
 
 1. Tirate esta query en producción y copia el resultado a groups.json:
 
-```select array_to_json(array_agg(row_to_json(t)))
+```
+    select array_to_json(array_agg(row_to_json(t)))
     from (
       select name, permissions::JSONB from groups
     ) t;
