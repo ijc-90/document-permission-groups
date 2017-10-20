@@ -17,6 +17,7 @@ guardar el resultado en functionalities.html
 
 
 4. corre el script:
+
 ```node make-groups-documentation.js```
 
 
