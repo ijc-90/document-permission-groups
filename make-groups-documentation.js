@@ -28,8 +28,8 @@ function processFile(err,data){
     for( var permission in group.permissions){
         // Some permission from the database come in "-1". We would like to ignore them
         if (group.permissions[permission] > 0){
-            var regexp = new RegExp(permission, "ig");
-            var newValue = highlighterBeginning + permission + highlighterEnd;
+            var regexp = new RegExp (">"  + permission + "<" , "ig");
+            var newValue = ">" + highlighterBeginning + permission + highlighterEnd + "<";
 
             functionalities = functionalities.replace(regexp, newValue);
         }
@@ -45,8 +45,8 @@ function highlightFunctionalitiesWithGroupPermission(functionalities, group,high
     for( var permission in group.permissions){
         // Some permission from the database come in "-1". We would like to ignore them
         if (group.permissions[permission] > 0){
-            var regexp = new RegExp(permission, "ig");
-            var newValue = highlighterBeginning + permission + highlighterEnd;
+            var regexp = new RegExp(">" + permission + "<" , "ig");
+            var newValue = ">" + highlighterBeginning + permission + highlighterEnd + "<";
 
             functionalities = functionalities.replace(regexp, newValue);
         }
