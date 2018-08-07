@@ -8,6 +8,7 @@
       select name, permissions::JSONB from groups
     ) t;
 ```
+* Me falló una vez porque había algunos permisos vacíos que no podían ser interpretados como JSON (Venían como un string vacío y no como null)
 
 2. Cambiale el nombre al grupo "Laboratório - Revisão/Foto" para que no contenga una barra
 
