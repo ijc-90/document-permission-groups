@@ -23,3 +23,5 @@ guardar el resultado en functionalities.html
 
 
 5. se generan un archivo resaltados en la carpeta groupsDocumentation para cada grupo de permisos, con el nombre del grupo.
+
+6. Cambiar en el html resultante todas las apariciones de "overflow:hidden" por "overflow:scroll"
